@@ -32,11 +32,11 @@ class NiceHabitRewardValidator:
         self.field1 = field1
         self.field2 = field2
 
-        def __call__(self, value):
-            if value.get(self.field1) and value.get(self.field2):
-                raise serializers.ValidationError(
-                    "Выберите или приятную привычку, или вознаграждение"
-                )
+    def __call__(self, value):
+        if value.get(self.field1) and value.get(self.field2):
+            raise serializers.ValidationError(
+                "Выберите или приятную привычку, или вознаграждение"
+            )
 
 
 class RelatedNiceHabitValidator:
