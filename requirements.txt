@@ -35,3 +35,6 @@ uritemplate==4.1.1
 vine==5.1.0
 wcwidth==0.2.13
 wheel==0.43.0
+celery==5.4.0
+django-cors-headers==4.5.0
+requests~=2.32.3

@@ -1,6 +1,7 @@
 from django.db import models
 
 from users.models import User
+
 NULLABLE = {"null": True, "blank": True}
 
 
@@ -32,12 +33,15 @@ class Habit(models.Model):
     related_nice_habit = models.ForeignKey(
         "self", verbose_name="связанная привычка", on_delete=models.SET_NULL, **NULLABLE
     )
-    periodicity = models.IntegerField(default=1)  # 1 день
+    periodicity = models.PositiveIntegerField(default=1, help_text="Укажите периодичность от 1 до 7, где 1 - один раз "
+                                                                   "в неделю, а 7 - это каждый день",
+                                              )  # 1 день
     reward = models.ForeignKey(
         Reward, verbose_name="вознаграждение", on_delete=models.SET_NULL, **NULLABLE
     )
     time_to_implement = models.IntegerField(default=120)  # 2 минуты(120 секунд)
     is_public = models.BooleanField(default=True)
+    send_date = models.DateField(auto_now_add=True, verbose_name="дата начала отправки", **NULLABLE)
 
     def __str__(self):
         return f"Я буду {self.action} в {self.time} в {self.place}"

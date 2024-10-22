@@ -2,7 +2,7 @@ from django.urls import path
 from rest_framework.routers import DefaultRouter
 
 from habits.apps import HabitsConfig
-from habits.serializer import RewardViewSet
+from habits.views import RewardViewSet
 from habits.views import (
     HabitListAPIView,
     HabitCreateAPIView,

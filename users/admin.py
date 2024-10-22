@@ -13,7 +13,8 @@ class UserAdmin(admin.ModelAdmin):
 
 @admin.register(Habit)
 class HabitAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'action', 'is_nice', 'related_nice_habit', 'reward', 'place', 'time', 'periodicity', 'time_to_implement', 'is_public',)
+    list_display = ('id', 'name', 'action', 'is_nice', 'related_nice_habit', 'reward', 'place', 'time', 'periodicity',
+                    'time_to_implement', 'is_public','send_date',)
     list_filter = ('is_nice',)
     search_fields = ('name',)
 
